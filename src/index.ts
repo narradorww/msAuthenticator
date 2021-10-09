@@ -1,6 +1,7 @@
 import express, {Request, Response, NextFunction} from 'express';
 import usersRoute from './routes/users.route';
 import { StatusCodes } from 'http-status-codes'
+import statusRoute from './routes/users.route';
 
 const app = express();
 
@@ -13,10 +14,10 @@ app.use(express.urlencoded({extended: true}));
 
 // Configurações de Rotas
 app.use(usersRoute);
+app.use(statusRoute);
 
-app.get('/status', (req: Request, res: Response, nexT: NextFunction) => {
-    res.status(StatusCodes.OK).send({ foo : 'Sucesso no carregamento do server'});
-} );
+
+
 //Inicialização do Server
 app.listen(3000, () => {
     console.log('Rodando na 3000')
