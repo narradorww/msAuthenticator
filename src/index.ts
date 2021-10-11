@@ -1,7 +1,7 @@
 import express, {Request, Response, NextFunction} from 'express';
 import usersRoute from './routes/users.route';
 import { StatusCodes } from 'http-status-codes'
-import statusRoute from './routes/users.route';
+import statusRoute from './routes/status.route';
 
 const app = express();
 
