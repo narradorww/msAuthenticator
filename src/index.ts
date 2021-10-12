@@ -2,6 +2,7 @@ import express, {Request, Response, NextFunction} from 'express';
 import usersRoute from './routes/users.route';
 import { StatusCodes } from 'http-status-codes'
 import statusRoute from './routes/status.route';
+import errorHandler from './middlewares/error-handling.middleware';
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(usersRoute);
 app.use(statusRoute);
 
+//Configuração dos Handlers de Erro
+app.use(errorHandler)
 
 
 //Inicialização do Server
